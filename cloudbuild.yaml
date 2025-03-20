@@ -59,7 +59,7 @@ steps:
       - '--platform=managed'
       - '--port=80'
       - >-
-        --image=$_AR_HOSTNAME/$PROJECT_ID/cloud-run-source-deploy/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA
+        --image=$_AR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA
 #      - >-
 #        --labels=managed-by=gcp-cloud-build-deploy-cloud-run,commit-sha=$COMMIT_SHA,gcb-build-id=$BUILD_ID,php-amarcord-github-user=$_GITHUB_USER,devfest-city=$_DEVFEST_CITY
       - '--region=$_DEPLOY_REGION'
@@ -79,7 +79,7 @@ steps:
 
 images:
   - >-
-    $_AR_HOSTNAME/$PROJECT_ID/cloud-run-source-deploy/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA
+    $_AR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA
 options:
   substitutionOption: ALLOW_LOOSE
   logging: CLOUD_LOGGING_ONLY
@@ -90,8 +90,6 @@ substitutions:
   _SERVICE_NAME: php-amarcord
   _EXECUTION_ENVIRONMENT: 'rgc/cloudbuild'
   _GITHUB_USER: mosquitoman81
-  _DEVFEST_CITY: pescara
 tags:
   - gcp-cloud-build-deploy-cloud-run
   - php-amarcord
-  - ricc-ne-sa-a-tronchi
